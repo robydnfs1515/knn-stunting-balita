@@ -30,8 +30,20 @@ $cari_id = mysqli_query($db, "SELECT max(id_alternatif) FROM tb_alternatif");
             <input type="hidden" name="id_alternatif" class="form-control" value="<?=$id_otomatis?>">
 
             <div class="form-group">
-                <label for="">Nama Alternatif</label>
+                <label for="">Nomor Induk Kependudukan</label>
+                <input type="text" name="nik_alternatif" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Nama Balita</label>
                 <input type="text" name="nama_alternatif" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Umur (Bulan)</label>
+                <input type="text" name="umur_alternatif" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Tanggal Lahir</label>
+                <input type="date" name="tgl_alternatif" class="form-control">
             </div>
 
             <div class="modal-footer">
@@ -63,8 +75,20 @@ $data = mysqli_query($db, "SELECT * FROM tb_alternatif WHERE id_alternatif = '" 
             <input type="hidden" name="id_alternatif" class="form-control" value="<?=$a['id_alternatif'];?>">
 
             <div class="form-group">
-                <label for="">Nama Alternatif</label>
+                <label for="">Nomor Induk Kependudukan</label>
+                <input type="text" name="nik_alternatif" class=" form-control" value="<?=$a['nik_alternatif'];?>">
+            </div>
+            <div class="form-group">
+                <label for="">Nama Balita</label>
                 <input type="text" name="nama_alternatif" class=" form-control" value="<?=$a['nama_alternatif'];?>">
+            </div>
+            <div class="form-group">
+                <label for="">Umur (Bulan)</label>
+                <input type="text" name="umur_alternatif" class=" form-control" value="<?=$a['umur_alternatif'];?>">
+            </div>
+            <div class="form-group">
+                <label for="">Tanggal Lahir</label>
+                <input type="date" name="tgl_alternatif" class=" form-control" value="<?=$a['tgl_alternatif'];?>">
             </div>
 
             <div class="modal-footer">

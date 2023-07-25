@@ -350,59 +350,30 @@ while ($a = mysqli_fetch_array($data)) {?>
 <br>
 <!-- ---------------------------------------------------------------------------------------- -->
 
-
-
 <?php
 $data = mysqli_query($db, "SELECT * FROM tb_alternatif ORDER BY id_alternatif ASC");
 while ($a = mysqli_fetch_array($data)) {
 
-    $data1 = mysqli_query($db, "SELECT count(*) AS jumlah_normal FROM tb_alternatif WHERE pilihan='Ya' AND
-keputusan_training='GIZI BAIK / NORMAL'");
+    $data1 = mysqli_query($db, "SELECT count(*) AS jumlah_layak FROM tb_alternatif WHERE pilihan='Ya' AND keputusan_training='YA'");
     $a1 = mysqli_fetch_array($data1);
 
-    $data2 = mysqli_query($db, "SELECT count(*) AS jumlah_kurus FROM tb_alternatif WHERE pilihan='Ya' AND
-keputusan_training='GIZI KURANG / KURUS'");
+    $data2 = mysqli_query($db, "SELECT count(*) AS jumlah_tidaklayak FROM tb_alternatif WHERE pilihan='Ya' AND keputusan_training='TIDAK'");
     $a2 = mysqli_fetch_array($data2);
 
-    $data3 = mysqli_query($db, "SELECT count(*) AS jumlah_overweight FROM tb_alternatif WHERE pilihan='Ya' AND
-keputusan_training='GIZI LEBIH / OVERWEIGHT'");
-    $a3 = mysqli_fetch_array($data3);
+    $jumlah_layak = $a1['jumlah_layak'];
+    $jumlah_tidaklayak = $a2['jumlah_tidaklayak'];
 
-    $data4 = mysqli_query($db, "SELECT count(*) AS jumlah_obesitas FROM tb_alternatif WHERE pilihan='Ya' AND
-keputusan_training='OBESITAS'");
-    $a4 = mysqli_fetch_array($data4);
-
-    $jumlah_normal = $a1['jumlah_normal'];
-    $jumlah_kurus = $a2['jumlah_kurus'];
-    $jumlah_overweight = $a3['jumlah_overweight'];
-    $jumlah_obesitas = $a4['jumlah_obesitas'];
-
-// Menambahkan perubahan kategori berdasarkan variabel data
-    if ($jumlah_normal > $jumlah_kurus && $jumlah_normal > $jumlah_overweight && $jumlah_normal > $jumlah_obesitas) {
-        $hasil = 'GIZI BAIK / NORMAL';
-        $hasill = 'Kategori Mayoritas(GIZI BAIK / NORMAL) lebih banyak dari pada mayoritas (GIZI KURANG / KURUS), (GIZI LEBIH /
-OVERWEIGHT), dan (OBESITAS)';
-    } elseif ($jumlah_kurus > $jumlah_normal && $jumlah_kurus > $jumlah_overweight && $jumlah_kurus > $jumlah_obesitas) {
-        $hasil = 'GIZI KURANG / KURUS';
-        $hasill = 'Kategori Mayoritas(GIZI KURANG / KURUS) lebih banyak dari pada mayoritas (GIZI BAIK / NORMAL), (GIZI LEBIH /
-OVERWEIGHT), dan (OBESITAS)';
-    } elseif ($jumlah_overweight > $jumlah_normal && $jumlah_overweight > $jumlah_kurus && $jumlah_overweight >
-        $jumlah_obesitas) {
-        $hasil = 'GIZI LEBIH / OVERWEIGHT';
-        $hasill = 'Kategori Mayoritas(GIZI LEBIH / OVERWEIGHT) lebih banyak dari pada mayoritas (GIZI BAIK / NORMAL), (GIZI
-KURANG / KURUS), dan (OBESITAS)';
-    } elseif ($jumlah_obesitas > $jumlah_normal && $jumlah_obesitas > $jumlah_kurus && $jumlah_obesitas >
-        $jumlah_overweight) {
-        $hasil = 'OBESITAS';
-        $hasill = 'Kategori Mayoritas(OBESITAS) lebih banyak dari pada mayoritas (GIZI BAIK / NORMAL), (GIZI KURANG / KURUS),
-dan (GIZI LEBIH / OVERWEIGHT)';
+    // Menambahkan perubahan kategori berdasarkan variabel data
+    if ($jumlah_layak > $jumlah_tidaklayak) {
+        $hasil = 'YA';
+        $hasill = 'Kategori Mayoritas (YA) lebih banyak daripada mayoritas (TIDAK)';
     } else {
-        $hasil = 'HASIL TIDAK DITEMUKAN !!!';
-        $hasill = 'Kategori Mayoritas(GIZI BAIK / NORMAL) lebih banyak dari pada mayoritas (GIZI KURANG / KURUS), (GIZI LEBIH /
-OVERWEIGHT), dan (OBESITAS)';
+        $hasil = 'TIDAK';
+        $hasill = 'Kategori Mayoritas (TIDAK) lebih banyak daripada mayoritas (YA)';
     }
 }
 ?>
+
 
 
 <div class='card shadow mb-2'>
@@ -413,28 +384,17 @@ OVERWEIGHT), dan (OBESITAS)';
         <div class='table-responsive'>
             <table class='table table-bordered' id='dataTable' width='100%' cellspacing='0'>
                 <p> Hasil perhitungan ini mengambil tiga data terbaik asecending (K=3) yang menggunakan <b>Klasifikasi
-                        K-Nearest Neighbors(K-NN)</b>. Adapun Kesimpulan dari metode adalah : <b><?=$hasill;?></b>,
-                    <b>GIZI BAIK / NORMAL</b> berjumlah <b>(<?=$jumlah_normal;?>)</b> sedangkan dengan
-                    <b>GIZI KURANG
-                        /
-                        KURUS</b>
-                    berjumlah <b> (<?=$jumlah_kurus;?>)</b> sedangkan dengan <b>GIZI LEBIH / OVERWEIGHT
-                        berjumlah</b>
-                    <b>(<?=$jumlah_overweight;?>)</b>, sehingga dapat disimpulkan atas nama
-                    <b><?=$_GET['nama_alternatif']?></b> keputusan sebagai balita yang hasilnya :
+                        K-Nearest Neighbors(K-NN)</b>. Adapun Kesimpulan dari metode adalah: <b><?=$hasill;?></b>,
+                    <b>YA</b> berjumlah <b>(<?=$jumlah_layak;?>)</b>, sedangkan dengan<b>TIDAK</b> berjumlah
+                    <b>(<?=$jumlah_tidaklayak;?>)</b> Oleh karena itu, dapat disimpulkan bahwa atas
+                    nama <b><?=$_GET['nama_alternatif']?></b>, keputusan yang dihasilkan adalah balita dengan kategori:
                     <b><?=$hasil;?></b>.
-
-                    GIZI BAIK / NORMA berjumlah <b>(<?=$jumlah_normal;?>)</b> sedangkan dengan GIZI KURANG / KURUS
-                    berjumlah <b> (<?=$jumlah_kurus;?>)</b> sedangkan dengan GIZI LEBIH / OVERWEIGHT berjumlah <b>
-                        (<?=$jumlah_overweight;?>)</b> </b> sedangkan dengan GIZI KURANG / KURUS berjumlah <b>
-                        (<?=$jumlah_obesitas;?>)</b>, sehingga dapat disimpulkan atas nama
-                    <b><?=$_GET['nama_alternatif']?></b> keputusan sebagai balita yang hasilnya :
-                    <b><?=$hasil;?></b>.
-
                 </p>
+            </table>
         </div>
     </div>
 </div>
+
 
 
 <br>

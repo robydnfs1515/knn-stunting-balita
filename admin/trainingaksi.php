@@ -39,10 +39,8 @@ $hasil = mysqli_query($db, "SELECT * FROM tb_kriteria ORDER BY id_kriteria");
             <div class="form-group">
                 <label>Keputusan</label>
                 <select name="keputusan_training" class="form-control">
-                    <option>GIZI BAIK / NORMAL</option>
-                    <option>GIZI KURANG / KURUS</option>
-                    <option>GIZI LEBIH / OVERWEIGHT</option>
-                    <option>OBESITAS</option>
+                    <option>YA</option>
+                    <option>TIDAK</option>
                 </select>
 
             </div>
@@ -109,10 +107,8 @@ $hasil = mysqli_query($db, "SELECT * FROM tb_alternatif WHERE id_alternatif='$_G
                 <label>Keputusan</label>
                 <select name="keputusan_training" class="form-control">
                     <option selected><?=$baris['keputusan_training']?></option>
-                    <option>GIZI BAIK / NORMAL</option>
-                    <option>GIZI KURANG / KURUS</option>
-                    <option>GIZI LEBIH / OVERWEIGHT</option>
-                    <option>OBESITAS</option>
+                    <option>YA</option>
+                    <option>TIDAK</option>
                 </select>
             </div>
             <?php }?>

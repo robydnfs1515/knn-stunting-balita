@@ -1,10 +1,13 @@
 <?php
 include 'header.php';
-if (isset($_GET['aksi'])) {
-    if ($_GET['aksi'] == 'tambah') {?>
 
-<?php
-$cari_id = mysqli_query($db, "SELECT max(id_kriteria) FROM tb_kriteria");
+// Lakukan koneksi ke database
+// $db = mysqli_connect("localhost", "username", "password", "nama_database");
+// Pastikan melakukan koneksi ke database sebelum menjalankan query
+
+if (isset($_GET['aksi'])) {
+    if ($_GET['aksi'] == 'tambah') {
+        $cari_id = mysqli_query($db, "SELECT max(id_kriteria) FROM tb_kriteria");
         $data_id = mysqli_fetch_array($cari_id);
         if ($data_id) {
             $nilai_id = substr($data_id[0], 1);
@@ -21,12 +24,9 @@ $cari_id = mysqli_query($db, "SELECT max(id_kriteria) FROM tb_kriteria");
         <h6 class='m-0 font-weight-bold text-primary'>Kriteria / Tambah Kriteria</h6>
     </div>
     <div class='card-body'>
-        <div class='table-responsive'>
-
-        </div>
+        <div class='table-responsive'></div>
 
         <form action="kriteriaproses.php?proses=prosestambah" method="post" enctype="multipart/form-data">
-
             <input type="hidden" name="id_kriteria" class="form-control" value="<?=$id_otomatis?>">
 
             <div class="form-group">
@@ -43,7 +43,6 @@ $cari_id = mysqli_query($db, "SELECT max(id_kriteria) FROM tb_kriteria");
                 <a href="kriteria.php" class="btn btn-primary">Kembali</a>
                 <input type="submit" class="btn btn-success" value="Simpan">
             </div>
-
         </form>
     </div>
 </div>
@@ -59,14 +58,12 @@ $cari_id = mysqli_query($db, "SELECT max(id_kriteria) FROM tb_kriteria");
     <div class='card-body'>
         <div class='table-responsive'>
             <?php
-$data = mysqli_query($db, "SELECT * FROM tb_kriteria WHERE id_kriteria = " . $_GET['id_kriteria']);
-        while ($a = mysqli_fetch_array($data)) {
+$data = mysqli_query($db, "SELECT * FROM tb_kriteria WHERE id_kriteria = '" . $_GET['id_kriteria'] . "'");
+        while ($a = mysqli_fetch_assoc($data)) {
             ?>
-
         </div>
 
         <form action="kriteriaproses.php?proses=prosesubah" method="post" enctype="multipart/form-data">
-
             <input type="hidden" name="id_kriteria" class="form-control" value="<?=$a['id_kriteria']?>">
 
             <div class="form-group">
@@ -84,15 +81,9 @@ $data = mysqli_query($db, "SELECT * FROM tb_kriteria WHERE id_kriteria = " . $_G
                 <a href="kriteria.php" class="btn btn-primary">Kembali</a>
                 <input type="submit" class="btn btn-success" value="Ubah">
             </div>
-
         </form>
         <?php
 }
-        ?>
-    </div>
-</div>
-
-<?php
-}
+    }
 }
 ?>
