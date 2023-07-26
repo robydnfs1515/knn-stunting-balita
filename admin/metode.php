@@ -54,7 +54,7 @@ if (isset($_GET['aksi'])) {
     <input type="hidden" class="form-control" name="id_alternatif" value="A01" readonly>
 
     <div class="form-group">
-        <label for="">Nama Alternatif</label>
+        <label for="">Nama Balita</label>
         <input type="text" class="form-control" name="nama_alternatif" placeholder="<?=$_GET['nama_alternatif']?>">
     </div>
 
@@ -96,7 +96,7 @@ while ($baris = mysqli_fetch_array($hasil)) {
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>Nama Alternatif</th>
+                        <th>Nama Balita</th>
 
                         <!-- Untuk menampilakan data dari tabel kriteria -->
                         <?php

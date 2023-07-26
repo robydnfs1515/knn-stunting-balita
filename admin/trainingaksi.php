@@ -4,6 +4,20 @@ if (isset($_GET['aksi'])) {
     if ($_GET['aksi'] == 'tambah') {
         ?>
 
+<?php
+$cari_id = mysqli_query($db, "SELECT max(id_subkriteria) FROM tb_subkriteria");
+        $data_id = mysqli_fetch_array($cari_id);
+        if ($data_id) {
+            $nilai_id = substr($data_id[0], 1);
+            $id = (int) $nilai_id;
+            $id = $id + 1;
+            $id_otomatis = "S" . str_pad($id, 2, "0", STR_PAD_LEFT);
+        } else {
+            $id_otomatis = "S01";
+        }
+
+        ?>
+
 <div class='card shadow mb-2'>
     <div class='card-header py-3'>
         <h6 class='m-0 font-weight-bold text-primary'>Training / Tambah Data Training</h6>
@@ -18,7 +32,7 @@ if (isset($_GET['aksi'])) {
             <input type="hidden" name="id_alternatif" class="form-control"
                 value="<?=htmlspecialchars($_GET['id_alternatif']);?>">
 
-            <?php
+            <!-- <?php
 $hasil = mysqli_query($db, "SELECT * FROM tb_kriteria ORDER BY id_kriteria");
         while ($baris = mysqli_fetch_array($hasil)) {
             $idK = $baris['id_kriteria'];
@@ -34,7 +48,9 @@ $hasil = mysqli_query($db, "SELECT * FROM tb_kriteria ORDER BY id_kriteria");
             }
             echo "</select> </div>";
         }
-        ?>
+        ?> -->
+
+
 
             <div class="form-group">
                 <label>Keputusan</label>

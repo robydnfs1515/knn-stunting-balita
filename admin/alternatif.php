@@ -13,13 +13,14 @@ include 'header.php';
 <!-- DataTales -->
 <div class='card shadow mb-2'>
     <div class='card-header py-3'>
-        <h6 class='m-0 font-weight-bold text-primary'>Tabel Alternatif</h6>
+        <h6 class='m-0 font-weight-bold text-primary'>Data Balita</h6>
     </div>
     <div class='card-body'>
         <div class='table-responsive'>
             <table class='table table-bordered' id='dataTable' width='100%' cellspacing='0'>
                 <thead>
                     <tr>
+                        <th>No.</th>
                         <th>Nomor Induk Kependudukan</th>
                         <th>Nama Balita</th>
                         <th>Umur</th>
@@ -37,6 +38,7 @@ while ($a = mysqli_fetch_array($data)) {
     ?>
 
                     <tr>
+                        <td><?=$no++;?></td>
                         <td><?=$a['nik_alternatif'];?></td>
                         <td><?=$a['nama_alternatif'];?></td>
                         <td><?=$a['umur_alternatif'];?></td>

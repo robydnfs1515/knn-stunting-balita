@@ -6,16 +6,16 @@ $data = mysqli_query($db, "SELECT * FROM tb_alternatif WHERE id_alternatif='" . 
 $a = mysqli_fetch_array($data);
 ?>
 <div>
-<?php
+    <?php
 $dataa = mysqli_query($db, "SELECT * FROM tb_training WHERE id_alternatif='" . $_GET['id_alternatif'] . "'");
 $aa = mysqli_fetch_array($dataa);
 
-if (empty($aa['id_alternatif'])) { ?>
-      <a class="btn btn-success" href="trainingaksi.php?aksi=tambah&id_alternatif=<?=$_GET['id_alternatif']?>"><i
+if (empty($aa['id_alternatif'])) {?>
+    <a class="btn btn-success" href="trainingaksi.php?aksi=tambah&id_alternatif=<?=$_GET['id_alternatif']?>"><i
             class="fa fa-plus" aria-hidden="true"></i>&nbsp
         Tambah</a>
- <?php }else{ }?>
-   
+    <?php } else {}?>
+
 </div>
 
 <br>
