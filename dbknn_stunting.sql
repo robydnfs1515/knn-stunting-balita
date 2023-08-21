@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 07, 2023 at 06:48 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Aug 21, 2023 at 02:16 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dbkkn_stunting`
+-- Database: `dbknn_stunting`
 --
 
 -- --------------------------------------------------------
@@ -29,56 +29,59 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tb_alternatif` (
   `id_alternatif` varchar(11) NOT NULL,
+  `nik_alternatif` varchar(20) NOT NULL,
   `nama_alternatif` varchar(50) NOT NULL,
+  `umur_alternatif` varchar(10) NOT NULL,
+  `tgl_alternatif` varchar(10) NOT NULL,
   `keputusan_training` varchar(50) NOT NULL,
   `distance` double NOT NULL,
   `rangking` int(11) NOT NULL,
   `pilihan` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_alternatif`
 --
 
-INSERT INTO `tb_alternatif` (`id_alternatif`, `nama_alternatif`, `keputusan_training`, `distance`, `rangking`, `pilihan`) VALUES
-('A01', 'MUZAYYUNA', 'TIDAK', 81.300246002088, 10, 'Tidak'),
-('A02', 'ANNISA HAIFA', 'TIDAK', 95.742414843161, 34, 'Tidak'),
-('A03', 'SYAWAL AL FAIZI', 'TIDAK', 93.346879969284, 31, 'Tidak'),
-('A04', 'MUHAMMAD AFIQ', 'TIDAK', 95.730037083457, 33, 'Tidak'),
-('A05', 'ARIKA FATINA', 'TIDAK', 98.871684520898, 36, 'Tidak'),
-('A06', 'NAFISATUL HUSNA', 'TIDAK', 103.01145567363, 37, 'Tidak'),
-('A07', 'ALESHA AL ZAHRA', 'TIDAK', 85.842879728024, 22, 'Tidak'),
-('A08', 'AZRINA', 'TIDAK', 84.155867293968, 17, 'Tidak'),
-('A09', 'ARIKA SAFNA', 'TIDAK', 95.007578645074, 32, 'Tidak'),
-('A10', 'FATIN SIDQIA', 'TIDAK', 85.29384502999, 20, 'Tidak'),
-('A11', 'MUHAMMAD RIZIQ', 'TIDAK', 77.260662694543, 2, 'Ya'),
-('A12', 'NAURA RANIA', 'TIDAK', 83.22043018394, 15, 'Tidak'),
-('A13', 'AZKIATUL MUNA', 'TIDAK', 88.300679499084, 26, 'Tidak'),
-('A14', 'MAULANA ZAHRA', 'TIDAK', 78.262379212493, 4, 'Tidak'),
-('A15', 'AFIFA FATIA', 'TIDAK', 81.065467370515, 8, 'Tidak'),
-('A16', 'MUNAWARAH', 'TIDAK', 80.230916734137, 7, 'Tidak'),
-('A17', 'MUHAMMAD ZARMUJI', 'TIDAK', 85.109870167919, 18, 'Tidak'),
-('A18', 'SUCI RAMADHANI', 'TIDAK', 98.13770936801, 35, 'Tidak'),
-('A19', 'JIHAN TALITA HAURA', 'TIDAK', 108.66462165765, 38, 'Tidak'),
-('A20', 'MUDA BALIA', 'TIDAK', 90.6576527382, 29, 'Tidak'),
-('A21', 'SULTAN', 'TIDAK', 92.655275079188, 30, 'Tidak'),
-('A22', 'AIRA ILYANA', 'TIDAK', 87.584302246464, 24, 'Tidak'),
-('A23', 'MUHAMMAD YAZID', 'TIDAK', 87.655518936345, 25, 'Tidak'),
-('A24', 'KHALISA BAHIRA', 'TIDAK', 88.600733631274, 28, 'Tidak'),
-('A25', 'ARSYILA AINI', 'TIDAK', 81.664925151499, 11, 'Tidak'),
-('A26', 'NASYA NABILA', 'YA', 79.832637436076, 6, 'Tidak'),
-('A27', 'MUHAMMAD', 'TIDAK', 81.233059772484, 9, 'Tidak'),
-('A28', 'ZAIN KAUSAR', 'TIDAK', 85.142292663517, 19, 'Tidak'),
-('A29', 'ADIRA AZZAHRA', 'TIDAK', 82.571726395904, 14, 'Tidak'),
-('A30', 'MUHAMMAD IKRAM', 'TIDAK', 76.496339781718, 1, 'Ya'),
-('A31', 'ASHIMA DINILLAH', 'TIDAK', 85.375640553966, 21, 'Tidak'),
-('A32', 'AKIFA NAILA', 'TIDAK', 79.605527446277, 5, 'Tidak'),
-('A33', 'GAYSHAN ALFAN', 'TIDAK', 83.624398353591, 16, 'Tidak'),
-('A34', 'AFIVA FITIA', 'YA', 87.485084443007, 23, 'Tidak'),
-('A35', 'ARIF MUNANDAR', 'YA', 77.524189773257, 3, 'Ya'),
-('A36', 'AQILA PUTRI', 'TIDAK', 88.490055938506, 27, 'Tidak'),
-('A37', 'SYIFAUL KHAIRA', 'TIDAK', 82.460232839836, 12, 'Tidak'),
-('A38', 'MUHAMMAD ZAIYAN', 'TIDAK', 82.560038759681, 13, 'Tidak');
+INSERT INTO `tb_alternatif` (`id_alternatif`, `nik_alternatif`, `nama_alternatif`, `umur_alternatif`, `tgl_alternatif`, `keputusan_training`, `distance`, `rangking`, `pilihan`) VALUES
+('A01', '263527345234324', 'MUZAYYUNA', '34', '22/12/2018', 'TIDAK', 88.694475588956, 28, 'Tidak'),
+('A02', '1242141241242143', 'ANNISA HAIFA', '34', '2023-01-21', 'TIDAK', 106.84385803592, 37, 'Tidak'),
+('A03', '', 'SYAWAL AL FAIZI', '', '', 'TIDAK', 106.67070825677, 36, 'Tidak'),
+('A04', '', 'MUHAMMAD AFIQ', '', '', 'TIDAK', 95.730037083457, 32, 'Tidak'),
+('A05', '', 'ARIKA FATINA', '', '', 'TIDAK', 98.871684520898, 34, 'Tidak'),
+('A06', '', 'NAFISATUL HUSNA', '', '', 'TIDAK', 103.01145567363, 35, 'Tidak'),
+('A07', '', 'ALESHA AL ZAHRA', '', '', 'TIDAK', 85.842879728024, 21, 'Tidak'),
+('A08', '', 'AZRINA', '', '', 'TIDAK', 84.155867293968, 16, 'Tidak'),
+('A09', '', 'ARIKA SAFNA', '', '', 'TIDAK', 95.007578645074, 31, 'Tidak'),
+('A10', '', 'FATIN SIDQIA', '', '', 'TIDAK', 85.29384502999, 19, 'Tidak'),
+('A11', '', 'MUHAMMAD RIZIQ', '', '', 'TIDAK', 77.260662694543, 2, 'Ya'),
+('A12', '', 'NAURA RANIA', '', '', 'TIDAK', 83.22043018394, 14, 'Tidak'),
+('A13', '', 'AZKIATUL MUNA', '', '', 'TIDAK', 88.300679499084, 25, 'Tidak'),
+('A14', '', 'MAULANA ZAHRA', '', '', 'TIDAK', 78.262379212493, 4, 'Tidak'),
+('A15', '', 'AFIFA FATIA', '', '', 'TIDAK', 81.065467370515, 8, 'Tidak'),
+('A16', '', 'MUNAWARAH', '', '', 'TIDAK', 80.230916734137, 7, 'Tidak'),
+('A17', '', 'MUHAMMAD ZARMUJI', '', '', 'TIDAK', 85.109870167919, 17, 'Tidak'),
+('A18', '', 'SUCI RAMADHANI', '', '', 'TIDAK', 98.13770936801, 33, 'Tidak'),
+('A19', '', 'JIHAN TALITA HAURA', '', '', 'TIDAK', 108.66462165765, 38, 'Tidak'),
+('A20', '', 'MUDA BALIA', '', '', 'TIDAK', 90.6576527382, 29, 'Tidak'),
+('A21', '', 'SULTAN', '', '', 'TIDAK', 92.655275079188, 30, 'Tidak'),
+('A22', '', 'AIRA ILYANA', '', '', 'TIDAK', 87.584302246464, 23, 'Tidak'),
+('A23', '', 'MUHAMMAD YAZID', '', '', 'TIDAK', 87.655518936345, 24, 'Tidak'),
+('A24', '', 'KHALISA BAHIRA', '', '', 'TIDAK', 88.600733631274, 27, 'Tidak'),
+('A25', '', 'ARSYILA AINI', '', '', 'TIDAK', 81.664925151499, 10, 'Tidak'),
+('A26', '', 'NASYA NABILA', '', '', 'YA', 79.832637436076, 6, 'Tidak'),
+('A27', '', 'MUHAMMAD', '', '', 'TIDAK', 81.233059772484, 9, 'Tidak'),
+('A28', '', 'ZAIN KAUSAR', '', '', 'TIDAK', 85.142292663517, 18, 'Tidak'),
+('A29', '', 'ADIRA AZZAHRA', '', '', 'TIDAK', 82.571726395904, 13, 'Tidak'),
+('A30', '', 'MUHAMMAD IKRAM', '', '', 'TIDAK', 76.496339781718, 1, 'Ya'),
+('A31', '', 'ASHIMA DINILLAH', '', '', 'TIDAK', 85.375640553966, 20, 'Tidak'),
+('A32', '', 'AKIFA NAILA', '', '', 'TIDAK', 79.605527446277, 5, 'Tidak'),
+('A33', '', 'GAYSHAN ALFAN', '', '', 'TIDAK', 83.624398353591, 15, 'Tidak'),
+('A34', '', 'AFIVA FITIA', '', '', 'YA', 87.485084443007, 22, 'Tidak'),
+('A35', '', 'ARIF MUNANDAR', '', '', 'YA', 77.524189773257, 3, 'Ya'),
+('A36', '', 'AQILA PUTRI', '', '', 'TIDAK', 88.490055938506, 26, 'Tidak'),
+('A37', '', 'SYIFAUL KHAIRA', '', '', 'TIDAK', 82.460232839836, 11, 'Tidak'),
+('A38', '', 'MUHAMMAD ZAIYAN', '', '', 'TIDAK', 82.560038759681, 12, 'Tidak');
 
 -- --------------------------------------------------------
 
@@ -90,15 +93,7 @@ CREATE TABLE `tb_hasil` (
   `id_hasil` int(11) NOT NULL,
   `nama_alternatif` varchar(50) NOT NULL,
   `keputusan_training` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tb_hasil`
---
-
-INSERT INTO `tb_hasil` (`id_hasil`, `nama_alternatif`, `keputusan_training`) VALUES
-(4, 'Ilham', 'TIDAK'),
-(5, 'SYLLA', 'TIDAK');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -110,7 +105,7 @@ CREATE TABLE `tb_kriteria` (
   `id_kriteria` varchar(11) NOT NULL,
   `nama_kriteria` varchar(50) NOT NULL,
   `keterangan_kriteria` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_kriteria`
@@ -118,7 +113,9 @@ CREATE TABLE `tb_kriteria` (
 
 INSERT INTO `tb_kriteria` (`id_kriteria`, `nama_kriteria`, `keterangan_kriteria`) VALUES
 ('K01', 'Berat Badan (BB)', '-'),
-('K02', 'Tinggi Badan (TB)', '-');
+('K02', 'Tinggi Badan (TB)', '-'),
+('K03', 'Lingkar Kepala (LKP)', '-'),
+('K04', 'Lingkar Lengan Atas (LILA)', '-');
 
 -- --------------------------------------------------------
 
@@ -131,7 +128,7 @@ CREATE TABLE `tb_subkriteria` (
   `nama_subkriteria` varchar(50) NOT NULL,
   `id_kriteria` varchar(50) NOT NULL,
   `nilai_subkriteria` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_subkriteria`
@@ -148,11 +145,64 @@ INSERT INTO `tb_subkriteria` (`id_subkriteria`, `nama_subkriteria`, `id_kriteria
 ('S08', 'BB', 'K01', '13.9\r'),
 ('S09', 'BB', 'K01', '13.8\r'),
 ('S10', 'BB', 'K01', '14.8\r'),
+('S100', 'LKP', 'K03', '43\r'),
+('S101', 'LKP', 'K03', '41\r'),
+('S102', 'LKP', 'K03', '41\r'),
+('S103', 'LKP', 'K03', '45\r'),
+('S104', 'LKP', 'K03', '43\r'),
+('S105', 'LKP', 'K03', '42\r'),
+('S106', 'LKP', 'K03', '41\r'),
+('S107', 'LKP', 'K03', '43\r'),
+('S108', 'LKP', 'K03', '46\r'),
+('S109', 'LKP', 'K03', '45\r'),
 ('S11', 'BB', 'K01', '13.9\r'),
+('S110', 'LKP', 'K03', '40\r'),
+('S111', 'LKP', 'K03', '41\r'),
+('S112', 'LKP', 'K03', '43\r'),
+('S113', 'LKP', 'K03', '42\r'),
+('S114', 'LKP', 'K03', '44\r'),
+('S115', 'LILA', 'K04', '17\r'),
+('S116', 'LILA', 'K04', '20\r'),
+('S117', 'LILA', 'K04', '19\r'),
+('S118', 'LILA', 'K04', '16\r'),
+('S119', 'LILA', 'K04', '17\r'),
 ('S12', 'BB', 'K01', '14.2\r'),
+('S120', 'LILA', 'K04', '17\r'),
+('S121', 'LILA', 'K04', '15\r'),
+('S122', 'LILA', 'K04', '15\r'),
+('S123', 'LILA', 'K04', '17\r'),
+('S124', 'LILA', 'K04', '19\r'),
+('S125', 'LILA', 'K04', '17\r'),
+('S126', 'LILA', 'K04', '19\r'),
+('S127', 'LILA', 'K04', '18\r'),
+('S128', 'LILA', 'K04', '19\r'),
+('S129', 'LILA', 'K04', '17\r'),
 ('S13', 'BB', 'K01', '15.1\r'),
+('S130', 'LILA', 'K04', '16\r'),
+('S131', 'LILA', 'K04', '19\r'),
+('S132', 'LILA', 'K04', '20\r'),
+('S133', 'LILA', 'K04', '18\r'),
+('S134', 'LILA', 'K04', '16\r'),
+('S135', 'LILA', 'K04', '16\r'),
+('S136', 'LILA', 'K04', '15\r'),
+('S137', 'LILA', 'K04', '15\r'),
+('S138', 'LILA', 'K04', '16\r'),
+('S139', 'LILA', 'K04', '16\r'),
 ('S14', 'BB', 'K01', '13\r'),
+('S140', 'LILA', 'K04', '16\r'),
+('S141', 'LILA', 'K04', '19\r'),
+('S142', 'LILA', 'K04', '18\r'),
+('S143', 'LILA', 'K04', '15\r'),
+('S144', 'LILA', 'K04', '15\r'),
+('S145', 'LILA', 'K04', '15\r'),
+('S146', 'LILA', 'K04', '17\r'),
+('S147', 'LILA', 'K04', '18\r'),
+('S148', 'LILA', 'K04', '13\r'),
+('S149', 'LILA', 'K04', '13\r'),
 ('S15', 'BB', 'K01', '13.1\r'),
+('S150', 'LILA', 'K04', '17\r'),
+('S151', 'LILA', 'K04', '15\r'),
+('S152', 'LILA', 'K04', '16\r'),
 ('S16', 'BB', 'K01', '14\r'),
 ('S17', 'BB', 'K01', '13.7\r'),
 ('S18', 'BB', 'K01', '14.9\r'),
@@ -213,7 +263,30 @@ INSERT INTO `tb_subkriteria` (`id_subkriteria`, `nama_subkriteria`, `id_kriteria
 ('S73', 'TB', 'K02', '77\r'),
 ('S74', 'TB', 'K02', '88\r'),
 ('S75', 'TB', 'K02', '82\r'),
-('S76', 'TB', 'K02', '82\r');
+('S76', 'TB', 'K02', '82\r'),
+('S77', 'LKP', 'K03', '49\r'),
+('S78', 'LKP', 'K03', '43\r'),
+('S79', 'LKP', 'K03', '48\r'),
+('S80', 'LKP', 'K03', '46\r'),
+('S81', 'LKP', 'K03', '42\r'),
+('S82', 'LKP', 'K03', '45\r'),
+('S83', 'LKP', 'K03', '45\r'),
+('S84', 'LKP', 'K03', '46\r'),
+('S85', 'LKP', 'K03', '47\r'),
+('S86', 'LKP', 'K03', '49\r'),
+('S87', 'LKP', 'K03', '45\r'),
+('S88', 'LKP', 'K03', '44\r'),
+('S89', 'LKP', 'K03', '46\r'),
+('S90', 'LKP', 'K03', '43\r'),
+('S91', 'LKP', 'K03', '43\r'),
+('S92', 'LKP', 'K03', '41\r'),
+('S93', 'LKP', 'K03', '45\r'),
+('S94', 'LKP', 'K03', '44\r'),
+('S95', 'LKP', 'K03', '44\r'),
+('S96', 'LKP', 'K03', '41\r'),
+('S97', 'LKP', 'K03', '41\r'),
+('S98', 'LKP', 'K03', '42\r'),
+('S99', 'LKP', 'K03', '41\r');
 
 -- --------------------------------------------------------
 
@@ -227,7 +300,7 @@ CREATE TABLE `tb_testing` (
   `nama_alternatif` varchar(50) NOT NULL,
   `id_kriteria` varchar(20) NOT NULL,
   `nilai_testing` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_testing`
@@ -248,19 +321,13 @@ CREATE TABLE `tb_training` (
   `id_alternatif` varchar(11) NOT NULL,
   `id_kriteria` varchar(11) NOT NULL,
   `id_subkriteria` varchar(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_training`
 --
 
 INSERT INTO `tb_training` (`id_training`, `id_alternatif`, `id_kriteria`, `id_subkriteria`) VALUES
-(240, 'A01', 'K01', 'S01'),
-(241, 'A01', 'K02', 'S39'),
-(242, 'A02', 'K01', 'S02'),
-(243, 'A02', 'K02', 'S40'),
-(244, 'A03', 'K01', 'S03'),
-(245, 'A03', 'K02', 'S59'),
 (246, 'A04', 'K01', 'S04'),
 (247, 'A04', 'K02', 'S39'),
 (248, 'A05', 'K01', 'S15'),
@@ -330,7 +397,19 @@ INSERT INTO `tb_training` (`id_training`, `id_alternatif`, `id_kriteria`, `id_su
 (312, 'A37', 'K01', 'S30'),
 (313, 'A37', 'K02', 'S76'),
 (314, 'A38', 'K01', 'S38'),
-(315, 'A38', 'K02', 'S76');
+(315, 'A38', 'K02', 'S76'),
+(316, 'A01', 'K01', 'S01'),
+(317, 'A01', 'K02', 'S39'),
+(318, 'A01', 'K03', 'S86'),
+(319, 'A01', 'K04', 'S129'),
+(320, 'A02', 'K01', 'S02'),
+(321, 'A02', 'K02', 'S40'),
+(322, 'A02', 'K03', 'S104'),
+(323, 'A02', 'K04', 'S116'),
+(324, 'A03', 'K01', 'S03'),
+(325, 'A03', 'K02', 'S59'),
+(326, 'A03', 'K03', 'S79'),
+(327, 'A03', 'K04', 'S128');
 
 -- --------------------------------------------------------
 
@@ -344,7 +423,7 @@ CREATE TABLE `tb_users` (
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `level` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_users`
@@ -419,7 +498,7 @@ ALTER TABLE `tb_testing`
 -- AUTO_INCREMENT for table `tb_training`
 --
 ALTER TABLE `tb_training`
-  MODIFY `id_training` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=316;
+  MODIFY `id_training` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=328;
 
 --
 -- AUTO_INCREMENT for table `tb_users`
