@@ -38,8 +38,8 @@ $cari_id = mysqli_query($db, "SELECT max(id_alternatif) FROM tb_alternatif");
                 <input type="text" name="nama_alternatif" class="form-control">
             </div>
             <div class="form-group">
-                <label for="">Umur (Bulan)</label>
-                <input type="text" name="umur_alternatif" class="form-control">
+                <label for="">Jenis Kelamin</label>
+                <input type="text" name="kelamin_alternatif" class="form-control">
             </div>
             <div class="form-group">
                 <label for="">Tanggal Lahir</label>
@@ -83,8 +83,9 @@ $data = mysqli_query($db, "SELECT * FROM tb_alternatif WHERE id_alternatif = '" 
                 <input type="text" name="nama_alternatif" class=" form-control" value="<?=$a['nama_alternatif'];?>">
             </div>
             <div class="form-group">
-                <label for="">Umur (Bulan)</label>
-                <input type="text" name="umur_alternatif" class=" form-control" value="<?=$a['umur_alternatif'];?>">
+                <label for="">Jenis Kelamin</label>
+                <input type="text" name="kelamin_alternatif" class=" form-control"
+                    value="<?=$a['kelamin_alternatif'];?>">
             </div>
             <div class="form-group">
                 <label for="">Tanggal Lahir</label>

@@ -17,13 +17,13 @@ include 'header.php';
     </div>
     <div class='card-body'>
         <div class='table-responsive'>
-            <table class='table table-bordered' id='dataTable' width='100%' cellspacing='0'>
+            <table id="example" class="display nowrap" style="width:100%">
                 <thead>
                     <tr>
                         <th>No.</th>
                         <th>Nomor Induk Kependudukan</th>
                         <th>Nama Balita</th>
-                        <th>Umur</th>
+                        <th>Jenis Kelamin</th>
                         <th>Tanggal Lahir</th>
                         <th class="text-center">Traning</th>
                         <th class="text-center">Action</th>
@@ -38,11 +38,11 @@ while ($a = mysqli_fetch_array($data)) {
     ?>
 
                     <tr>
-                        <td><?=$no++;?></td>
-                        <td><?=$a['nik_alternatif'];?></td>
+                        <td class="text-center"><?=$no++;?></td>
+                        <td class="text-center"><?=$a['nik_alternatif'];?></td>
                         <td><?=$a['nama_alternatif'];?></td>
-                        <td><?=$a['umur_alternatif'];?></td>
-                        <td><?=$a['tgl_alternatif'];?></td>
+                        <td class="text-center"><?=$a['kelamin_alternatif'];?></td>
+                        <td class="text-center"><?=$a['tgl_alternatif'];?></td>
                         <td class="text-center">
                             <a href="training.php?id_alternatif=<?=$a['id_alternatif'];?> "
                                 class="btn btn-warning">Training</a>
