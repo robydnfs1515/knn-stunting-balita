@@ -39,10 +39,10 @@ while ($a = mysqli_fetch_array($data)) {
                         <td><?=$no++;?></td>
                         <td><?=$a['nama_kriteria'];?></td>
                         <td><?=$a['keterangan_kriteria'];?></td>
-                        <!-- <td class="text-center">
+                        <td class="text-center">
                             <a href="subkriteria.php?id_kriteria=<?=$a['id_kriteria'];?>" class="btn btn-warning"><i
                                     class="fas fa-spinner fa-spin"></i></a>
-                        </td> -->
+                        </td>
                         <td class="text-center">
                             <a href="kriteriaaksi.php?id_kriteria=<?=$a['id_kriteria'];?>&aksi=ubah"
                                 class="btn btn-primary">Edit</a>
