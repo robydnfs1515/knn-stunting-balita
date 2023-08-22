@@ -1,5 +1,8 @@
-<?php 
+<?php
 include 'header.php';
+
+$card = mysqli_query($db, "SELECT * FROM tb_alternatif");
+
 ?>
 
 <!DOCTYPE html>
@@ -13,9 +16,22 @@ include 'header.php';
 </head>
 
 <body>
+    <?php
+$total_card = mysqli_num_rows($card);
+?>
 
-    <h3>Selamat Datang dan Selamat berkerja</h3>
-    <h3>Semoga hari-harimu menyenangkan</h3>
+    <div class="card text-center">
+        <div class="card-header">
+            Total Data Balita
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Data Balita</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary"><?php echo $total_card; ?></a>
+        </div>
+        <div class="card-footer text-body-secondary">
+        </div>
+    </div>
 
 </body>
 

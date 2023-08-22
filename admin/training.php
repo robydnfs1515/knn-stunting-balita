@@ -23,8 +23,11 @@ if (empty($aa['id_alternatif'])) {?>
 <!-- DataTales -->
 <div class='card shadow mb-2'>
     <div class='card-header py-3'>
-        <h6 class='m-0 font-weight-bold text-primary'>Tabel Training / <a
-                href="alternatif.php"><?=$a['nama_alternatif'];?></a></h6>
+        <h6 class='m-0 font-weight-bold text-primary'>Tabel Training </h6>
+        <br>
+        <a class="btn btn-success" href="alternatif.php" role="button"><i class="fa fa-arrow-left"
+                aria-hidden="true"></i>&nbsp
+            kembali</a>
     </div>
     <div class='card-body'>
         <div class='table-responsive'>

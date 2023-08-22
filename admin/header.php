@@ -83,18 +83,18 @@ include '../assets/conn/config.php';
                 <a class="nav-link" href="alternatif.php" data-target="#collapseUtilities" aria-expanded="true"
                     aria-controls="collapseUtilities">
                     <i class="fa-solid fa-arrow-up-from-ground-water"></i>
-                    <span>Alternatif</span>
+                    <span>Data Balita</span>
                 </a>
             </li>
 
-            <!-- Nav Item - kriteria Menu -->
+            <!-- Nav Item - kriteria Menu
             <li class="nav-item">
                 <a class="nav-link" href="kriteria.php" data-target="#collapseUtilities" aria-expanded="true"
                     aria-controls="collapseUtilities">
                     <i class="fa-solid fa-arrow-down-1-9"></i>
                     <span>Kriteria</span>
                 </a>
-            </li>
+            </li> -->
 
             <!-- Nav Item - Metode Menu -->
             <li class="nav-item">
