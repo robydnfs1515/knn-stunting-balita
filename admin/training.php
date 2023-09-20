@@ -66,7 +66,7 @@ while ($a = mysqli_fetch_array($data)) {
     // untuk menampilkan nilai sub berdasarkan kriteria
     $query1 = mysqli_query($db, "SELECT a.nilai_subkriteria AS sub FROM tb_subkriteria a INNER JOIN tb_training b ON a.id_subkriteria = b.id_subkriteria WHERE b.id_alternatif='" . $id . "' ORDER BY b.id_kriteria");
     while ($result1 = mysqli_fetch_array($query1)) {
-        echo "<td>$result1[sub]</td>";
+        echo "<td>$result1[sub] Cm</td>";
     }
     ?>
                     <td class="text-center"><?=$a['keputusan_training']?></td>

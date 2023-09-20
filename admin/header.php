@@ -15,7 +15,7 @@ include '../assets/conn/config.php';
     <meta name="description" content="">
     <meta name="author" content="nvrzkibr_">
 
-    <title>Sistem Informasi Klasifikasi Balita Stunting</title>
+    <title>Sistem Informasi Klasifikasi Balita Gizi Buruk</title>
 
     <!-- Custom fonts for this template-->
     <link href="../assets/template/fontawesome/css/all.css" rel="stylesheet" type="text/css">
@@ -57,7 +57,7 @@ include '../assets/conn/config.php';
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.php">
-                <div class="sidebar-brand-text mx-3">Klasifikasi Balita Stunting</div>
+                <div class="sidebar-brand-text mx-3">Klasifikasi Balita <small>Gizi Buruk</small></div>
             </a>
 
             <!-- Divider -->
@@ -122,12 +122,12 @@ include '../assets/conn/config.php';
                 Addons
             </div>
 
-            <!-- Nav Item - Charts -->
+            <!-- Nav Item - Charts
             <li class="nav-item">
                 <a class="nav-link" href="_halaman/regist.php">
                     <i class="fa-solid fa-person-circle-plus"></i>
                     <span>Register</span></a>
-            </li>
+            </li> -->
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">

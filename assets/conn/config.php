@@ -1,6 +1,9 @@
-<?php 
+<?php
 $localhost = "localhost";
 $username = "root";
 $password = ""; //keterangan jika pakai xampp pass dikosongkan saja, jika pakek appserv maka harus diisi
 $database = "dbknn_stunting";
-$db = mysqli_connect($localhost, $username, $password, $database) or die("Tidak terkoneksi!");
+$db = mysqli_connect($localhost, $username, $password, $database);
+if ($db == false) {
+    die("Tidak terkoneksi!" . mysqli_connect_error());
+}

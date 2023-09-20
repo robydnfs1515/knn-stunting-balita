@@ -250,10 +250,10 @@ while ($a = mysqli_fetch_array($data)) {
         $result2 = mysqli_fetch_array($query2);
         $val2 = $result2['subtesting'];
 
-        $val = pow(($val2 - $val1), 2);
+        $val = pow(($val1 - $val2), 2);
         $sum += ($val);
         $akr = sqrt($sum);
-        $akar = number_format($akr, 2);
+        $akar = number_format($akr);
         echo "<td class='text-center'>$val</td>";
     }
 
